@@ -1,17 +1,11 @@
 #ifndef CPPCLASSUNIT_H
 #define CPPCLASSUNIT_H
 
-#include "unit.h"
+#include "abstractclassunit.h"
 
-class CppClassUnit : public Unit
+class CppClassUnit : public AbstractClassUnit
 {
 public:
-    enum AccessModifier{
-        PUBLIC,
-        PROTECTED,
-        PRIVATE
-    };
-
     static const std::vector<std::string> ACCESS_MODIFIERS;
 
     explicit CppClassUnit(const std::string& name);
@@ -19,12 +13,7 @@ public:
     void add(const std::shared_ptr<Unit>& unit, Flags flags) override;
 
     std::string compile(unsigned int level = 0) const override;
-
-private:
-    std::string m_name;
-    using Fields = std::vector<std::shared_ptr<Unit>>;
-
-    std::vector<Fields> m_fields;
 };
+
 
 #endif // CPPCLASSUNIT_H

@@ -1,7 +1,7 @@
 #include "cppmethodunit.h"
 
 CppMethodUnit::CppMethodUnit(const std::string &name, const std::string &returnType, Flags flags)
-    : m_name(name), m_returnType(returnType), m_flags(flags){}
+    : AbstractMethodUnit(name, returnType, flags){}
 
 void CppMethodUnit::add(const std::shared_ptr<Unit> &unit, Flags)
 {
@@ -11,14 +11,14 @@ void CppMethodUnit::add(const std::shared_ptr<Unit> &unit, Flags)
 std::string CppMethodUnit::compile(unsigned int level) const
 {
     std::string result = generateShift(level);
-    if(m_flags & STATIC){
+    if(m_flags & AbstractMethodUnit::STATIC){
         result += "static ";
-    }else if(m_flags & VIRTUAL){
+    }else if(m_flags & AbstractMethodUnit::VIRTUAL){
         result += "virtual ";
     }
     result += m_returnType + " ";
     result += m_name + " () ";
-    if(m_flags & CONST){
+    if(m_flags & AbstractMethodUnit::CONST){
         result += " const";
     }
     result += " {\n";
