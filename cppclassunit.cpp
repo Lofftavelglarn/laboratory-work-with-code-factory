@@ -1,6 +1,6 @@
 #include "cppclassunit.h"
 
-const std::vector<std::string> CppClassUnit::ACCESS_MODIFIERS = {"public", "protected", "private"}; // Статическое поле класса должно быть проинициализровано вне него.
+const std::vector<std::string> CppClassUnit::ACCESS_MODIFIERS = {"public", "protected", "private"};
 
 CppClassUnit::CppClassUnit(const std::string &name)
     :AbstractClassUnit(name){

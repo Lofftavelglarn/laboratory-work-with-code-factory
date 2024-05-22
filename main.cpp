@@ -22,7 +22,7 @@ std::string generateProgram(std::shared_ptr<AbstractCodeFactory>& factory){
             "void",
             AbstractMethodUnit::VIRTUAL | AbstractMethodUnit::CONST
         ),
-        AbstractClassUnit::PROTECTED_INTERNAL
+        AbstractClassUnit::PRIVATE
     );
     auto method = factory->createMethod( "testFunc4", "void", AbstractMethodUnit::STATIC );
     method->add(factory->createPrintMethod( R"(Hello, world!\n)" ) );
@@ -34,7 +34,7 @@ int main(int argc, char *argv[])
 {
     QCoreApplication a(argc, argv);
 
-    std::shared_ptr<AbstractCodeFactory> factory = std::make_shared<JavaConcreteCodeFactory>();
+    std::shared_ptr<AbstractCodeFactory> factory = std::make_shared<CppConcreteCodeFactory>();
     std::cout << generateProgram(factory) << std::endl;
 
     return a.exec();
