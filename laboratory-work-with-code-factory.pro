@@ -12,8 +12,17 @@ SOURCES += \
         abstractmethodunit.cpp \
         abstractprintoperatorunit.cpp \
         cppclassunit.cpp \
+        cppconcretecodefactory.cpp \
         cppmethodunit.cpp \
         cppprintoperatorunit.cpp \
+        csclassunit.cpp \
+        csconcretecodefactory.cpp \
+        csmethodunit.cpp \
+        csprintoperatorunit.cpp \
+        javaclassunit.cpp \
+        javaconcretecodefactory.cpp \
+        javamethodunit.cpp \
+        javaprintoperatorunit.cpp \
         main.cpp \
         unit.cpp
 
@@ -24,9 +33,19 @@ else: unix:!android: target.path = /opt/$${TARGET}/bin
 
 HEADERS += \
     abstractclassunit.h \
+    abstractcodefactory.h \
     abstractmethodunit.h \
     abstractprintoperatorunit.h \
     cppclassunit.h \
+    cppconcretecodefactory.h \
     cppmethodunit.h \
     cppprintoperatorunit.h \
+    csclassunit.h \
+    csconcretecodefactory.h \
+    csmethodunit.h \
+    csprintoperatorunit.h \
+    javaclassunit.h \
+    javaconcretecodefactory.h \
+    javamethodunit.h \
+    javaprintoperatorunit.h \
     unit.h

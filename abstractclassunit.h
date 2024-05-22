@@ -9,7 +9,11 @@ public:
     enum AccessModifier{
         PUBLIC,
         PROTECTED,
-        PRIVATE
+        PRIVATE,
+        PRIVATE_PROTECTED,
+        FILE,
+        INTERNAL,
+        PROTECTED_INTERNAL
     };
     AbstractClassUnit(const std::string &name);
 

@@ -1,25 +1,25 @@
-#include "cppclassunit.h"
+#include "csclassunit.h"
 
-const std::vector<std::string> CppClassUnit::ACCESS_MODIFIERS = {"public", "protected", "private"}; // Статическое поле класса должно быть проинициализровано вне него.
+const std::vector<std::string> CsClassUnit::ACCESS_MODIFIERS = {"public", "protected", "private", "private protected", "file", "internal", "protected internal"}; // Статическое поле класса должно быть проинициализровано вне него.
 
-CppClassUnit::CppClassUnit(const std::string &name)
+CsClassUnit::CsClassUnit(const std::string &name)
     :AbstractClassUnit(name){
     AbstractClassUnit::m_fields.resize(ACCESS_MODIFIERS.size());
 }
 
-void CppClassUnit::add(const std::shared_ptr<Unit> &unit, Flags flags)
+void CsClassUnit::add(const std::shared_ptr<Unit> &unit, Flags flags)
 {
     int accessModifier = PRIVATE;
     if(flags < ACCESS_MODIFIERS.size()){
         accessModifier = flags;
     } else {
-        qWarning("It's not a c++ modifier");
+        qWarning("It's not a c# modifier");
     }
 
     m_fields[accessModifier].push_back(unit);
 }
 
-std::string CppClassUnit::compile(unsigned int level) const
+std::string CsClassUnit::compile(unsigned int level) const
 {
     std::string result = generateShift(level) + "class " + m_name + " {\n";
     for(size_t i = 0;i < ACCESS_MODIFIERS.size();++i){

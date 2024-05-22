@@ -1,19 +1,19 @@
-#ifndef CPPCLASSUNIT_H
-#define CPPCLASSUNIT_H
+#ifndef CSCLASSUNIT_H
+#define CSCLASSUNIT_H
 
 #include "abstractclassunit.h"
 #include <QObject>
 
-class CppClassUnit : public AbstractClassUnit
+class CsClassUnit : public AbstractClassUnit
 {
 public:
     static const std::vector<std::string> ACCESS_MODIFIERS;
 
-    explicit CppClassUnit(const std::string& name);
+    explicit CsClassUnit(const std::string &name);
 
     void add(const std::shared_ptr<Unit>& unit, Flags flags) override;
 
     std::string compile(unsigned int level = 0) const override;
 };
 
-#endif // CPPCLASSUNIT_H
+#endif // CSCLASSUNIT_H
