@@ -11,18 +11,20 @@ void JavaMethodUnit::add(const std::shared_ptr<Unit> &unit, Flags)
 std::string JavaMethodUnit::compile(unsigned int level) const
 {
     std::string result = generateShift(level);
-    if(m_flags & STATIC){
+    if(m_flags & AbstractMethodUnit::STATIC){
             result += "static ";
-    }else if(m_flags & ABSTRACT){
+    }else if(m_flags & AbstractMethodUnit::ABSTRACT){
         result += "abstract ";
         result += (m_returnType + "();");
         return result;
-    }else if(m_flags & FINAL){
+    }else if(m_flags & AbstractMethodUnit::FINAL){
         result += "final ";
+    }else if(m_flags){
+        qWarning("This modifier does not exist in java");
     }
     result += m_returnType + " ";
     result += m_name + " () ";
-    if(m_flags & CONST){
+    if(m_flags & AbstractMethodUnit::CONST){
         qWarning("The const modifier does not exist in java");
     }
     result += " {\n";

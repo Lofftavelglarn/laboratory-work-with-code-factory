@@ -2,6 +2,7 @@
 #define CPPMETHODUNIT_H
 
 #include "abstractmethodunit.h"
+#include "QObject"
 
 class CppMethodUnit : public AbstractMethodUnit
 {

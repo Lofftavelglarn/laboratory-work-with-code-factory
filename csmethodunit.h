@@ -2,6 +2,7 @@
 #define CSMETHODUNIT_H
 
 #include "abstractmethodunit.h"
+#include "QObject"
 
 class CsMethodUnit : public AbstractMethodUnit
 {

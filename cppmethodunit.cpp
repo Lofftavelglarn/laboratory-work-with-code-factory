@@ -15,11 +15,15 @@ std::string CppMethodUnit::compile(unsigned int level) const
         result += "static ";
     }else if(m_flags & AbstractMethodUnit::VIRTUAL){
         result += "virtual ";
+    } else if(m_flags){
+        qWarning("This modifier does not exist in c#");
     }
     result += m_returnType + " ";
     result += m_name + " () ";
     if(m_flags & AbstractMethodUnit::CONST){
         result += " const";
+    }else if(m_flags & AbstractMethodUnit::FINAL){
+        result += "final ";
     }
     result += " {\n";
     for(const auto& b : m_body){

@@ -15,6 +15,12 @@ std::string CsMethodUnit::compile(unsigned int level) const
         result += "static ";
     }else if(m_flags & AbstractMethodUnit::VIRTUAL){
         result += "virtual ";
+    }else if(m_flags & AbstractMethodUnit::ABSTRACT){
+        result += "abstract ";
+        result += (m_returnType + "();");
+        return result;
+    } else if(m_flags){
+        qWarning("This modifier does not exist in c#");
     }
     result += m_returnType + " ";
     result += m_name + " () ";
